@@ -23,6 +23,8 @@ $ mkimage -C none -A arm -T script -d gk7205v300.cmd gk7205v300.scr
 
 ![yucheng_2](yucheng_2.jpg)
 
+- [Notes on installing OpenIPC using Burn](https://github.com/OpenIPC/wiki/blob/master/en/burn-example.md) for Windows
+
 ```
 $ ./burn --chip gk7205v300 --file=u-boot/u-boot-gk7205v300-universal.bin --break; sleep 1; \
   echo 'fatload mmc 0:1 $baseaddr gk7205v300.scr;source $baseaddr' > /dev/ttyUSB0; screen -L /dev/ttyUSB0 115200
