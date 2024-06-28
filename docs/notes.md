@@ -19,6 +19,10 @@ $ mkimage -C none -A arm -T script -d gk7205v300.cmd gk7205v300.scr
 - Disconnect power from the device.
 - Сonnect an Ethernet cable.
 - Insert the SD card in the memory card slot.
+- Connect device UART with PCB clip (1-TX, 2-GND, 3-RX).
+
+![yucheng_2](yucheng_2.jpg)
+
 ```
 $ ./burn --chip gk7205v300 --file=u-boot/u-boot-gk7205v300-universal.bin --break; sleep 1; \
   echo 'fatload mmc 0:1 $baseaddr gk7205v300.scr;source $baseaddr' > /dev/ttyUSB0; screen -L /dev/ttyUSB0 115200
