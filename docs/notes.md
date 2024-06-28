@@ -1,30 +1,35 @@
 # Notes
 
 ## Usage
+### Set up your SD card
+
+- Format the entire disk as FAT32.
+- Copy the files to your SD Card:
+    - `gk7205v300.scr`
+    - `u-boot-gk7205v300-universal.bin`
+    - `uImage.gk7205v300`
+    - `rootfs.squashfs.gk7205v300`
+- If necessary, сonvert the `gk7205v300.cmd` to `gk7205v300.scr` using `mkimage`:
+```
+$ sudo apt install u-boot-tools
+$ mkimage -C none -A arm -T script -d gk7205v300.cmd gk7205v300.scr
+```
+
 ### Burn
+- Сonnect an Ethernet cable.
+- Disconnect power from the device.
 ```
 $ ./burn --chip gk7205v300 --file=u-boot/u-boot-gk7205v300-universal.bin --break; sleep 1; \
-  echo 'fatload mmc 0:1 $baseaddr gk7205v300.scr;source $baseaddr' > /dev/ttyUSB0; screen -L /dev/ttyUSB0 115200 
-...
-In:    serial
-Out:   serial
-Err:   serial
-RAM size: 128MB
-Net:   eth0
-Warning: eth0 (eth0) using random MAC address - 32:10:e6:cc:24:69
-
-Press Ctrl-c to stop autoboot... 2
-OpenIPC # <INTERRUPT>
-OpenIPC # <INTERRUPT>
-OpenIPC # <INTERRUPT>
-
+  echo 'fatload mmc 0:1 $baseaddr gk7205v300.scr;source $baseaddr' > /dev/ttyUSB0; screen -L /dev/ttyUSB0 115200
+Trying open /dev/ttyUSB0
 ```
-- Firstboot
+- Connect the power.
 ```
 ...
 Welcome to OpenIPC
 openipc-gk7205v300 login: root
 Password: 12345
+
 
    .d88888b.                             8888888 8888888b.   .d8888b.
   d88P" "Y88b                              888   888   Y88b d88P  Y88b
@@ -47,30 +52,27 @@ Password: 12345
 
  Please visit https://openipc.org/sponsor/ to learn more. Thank you.
 
-```
-- Reset u-boot default environment
-```
-root@openipc-gk7205v300:~# reboot 
-...
-Press Ctrl-c to stop autoboot... 2
-OpenIPC # <INTERRUPT>
-...
-# env default -a; saveenv; reset
-...
-Press Ctrl-c to stop autoboot... 2
-OpenIPC # <INTERRUPT>
-# run setnor16m
-...
 root@openipc-gk7205v300:~# firstboot
-```
-- Check memory
-```
-# free
-              total        used        free      shared  buff/cache   available
-Mem:         124508       56484       53816          92       14208       65356
+...
+Starting ntpd: OK
+Starting dropbear: OK
+Starting crond: OK
+Loading vendor modules...
+mmz_start: 0x42000000, mmz_size: 32M
+goke: SENSOR: imx335
+insert audio
+Starting majestic: OK
+
+Welcome to OpenIPC
+openipc-gk7205v300 login:
 ```
 
+### Set up Wi-Fi
 
-### Setup Wi-Fi
+- Open [http://192.168.1.10/cgi-bin/fw-network.cgi](http://192.168.1.10/cgi-bin/fw-network.cgi)
+- Select `wlan0` from the pull-down menu in the `Network interface` field.
+- Set up `WLAN SSID` and `WLAN Password` and press `Save Changes`.
 
 ![setup_wifi](setup_wifi.jpg)
+
+- Open [http://192.168.1.10/cgi-bin/fw-settings.cgi](http://192.168.1.10/cgi-bin/fw-settings.cgi) and press `Restart Camera`.
