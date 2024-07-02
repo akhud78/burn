@@ -26,8 +26,12 @@ $ mkimage -C none -A arm -T script -d gk7205v300.cmd gk7205v300.scr
 - [Notes on installing OpenIPC using Burn](https://github.com/OpenIPC/wiki/blob/master/en/burn-example.md) for Windows
 
 ```
-$ ./burn --chip gk7205v300 --file=u-boot/u-boot-gk7205v300-universal.bin --break; sleep 1; \
-  echo 'fatload mmc 0:1 $baseaddr gk7205v300.scr;source $baseaddr' > /dev/ttyUSB0; screen -L /dev/ttyUSB0 115200
+$ cd burn/
+$ SOC=gk7205v300 DEV='/dev/ttyUSB0'
+$ ./burn --chip $SOC --file=u-boot/u-boot-$SOC-universal.bin --break; sleep 1; \
+  echo 'fatload mmc 0:1 $baseaddr' "$SOC.scr;" 'source $baseaddr' > $DEV; \
+  screen -L $DEV 115200
+
 Trying open /dev/ttyUSB0
 ```
 - Connect the power.

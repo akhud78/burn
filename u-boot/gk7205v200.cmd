@@ -1,10 +1,10 @@
 echo --- Reset default environment ---
 env default -a
-
+ 
 echo --- Flash bootloader ---
 mw.b ${baseaddr} 0xff 0x50000
 sf probe 0; sf lock 0; sf erase 0x0 0x50000
-fatload mmc 0:1 ${baseaddr} u-boot-gk7205v300-universal.bin
+fatload mmc 0:1 ${baseaddr} u-boot-gk7205v200-universal.bin
 sf write ${baseaddr} 0x0 ${filesize}
 
 echo --- Flash kernel --- 
@@ -23,9 +23,9 @@ echo --- Reset camera settings ---
 sf probe 0; sf erase 0xd50000 0x2b0000
 
 echo --- setnor16m ---
-run mtdpartsnor16m; setenv bootcmd ${bootcmdnor};
-
-echo --- fix bootargs ---
-setenv bootargs 'mem=128M console=ttyAMA0,115200 panic=20 rootfstype=squashfs root=/dev/mtdblock3 init=/init mtdparts=${mtdparts} mmz_allocator=cma mmz=anonymous,0,0x42000000,96M'
+setenv osmem 46M
+run mtdpartsnor16m
+setenv bootcmd ${bootcmdnor};
 saveenv
 reset
+
