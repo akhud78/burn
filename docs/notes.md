@@ -1,21 +1,25 @@
 # Notes
 
-## Usage
-### Set up your SD card
+## Set up your SD card
 
+- Download zipped repository from github [burn](https://github.com/akhud78/burn)
+    - Above the list of files, click  **Code**.
+    - Click  **Download ZIP**
 - Format the entire disk as FAT32.
 - Copy the files to your SD Card:
     - `gk7205v300.scr`
     - `u-boot-gk7205v300-universal.bin`
     - `uImage.gk7205v300`
     - `rootfs.squashfs.gk7205v300`
-- If necessary, сonvert the `gk7205v300.cmd` to `gk7205v300.scr` using `mkimage`:
+
+### Optional
+- Convert the `gk7205v300.cmd` to `gk7205v300.scr` using `mkimage`:
 ```
 $ sudo apt install u-boot-tools
 $ mkimage -C none -A arm -T script -d gk7205v300.cmd gk7205v300.scr
 ```
 
-### Burn
+## Burn
 - Disconnect power from the device.
 - Сonnect an Ethernet cable.
 - Insert the SD card in the memory card slot.
@@ -23,8 +27,8 @@ $ mkimage -C none -A arm -T script -d gk7205v300.cmd gk7205v300.scr
 
 ![yucheng_2](yucheng_2.jpg)
 
-- [Notes on installing OpenIPC using Burn](https://github.com/OpenIPC/wiki/blob/master/en/burn-example.md) for Windows
 
+### Linux
 ```
 $ cd burn/
 $ SOC=gk7205v300 DEV='/dev/ttyUSB0'
@@ -34,7 +38,23 @@ $ ./burn --chip $SOC --file=u-boot/u-boot-$SOC-universal.bin --break; sleep 1; \
 
 Trying open /dev/ttyUSB0
 ```
-- Connect the power.
+### Windows
+
+- [Notes on installing OpenIPC using Burn](https://github.com/OpenIPC/wiki/blob/master/en/burn-example.md) for Windows
+- Install [Python for Windows](https://www.python.org/downloads/windows/)
+- Install [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+- Opening a command or shell prompt
+    - Click `Start > Run` or press `Windows + R` key.
+    - Type `cmd` and click `OK`.
+```
+>cd burn
+>burn.bat COM3
+Trying open COM3
+```
+
+
+### Run
+- Connect the power 🔌
 ```
 ...
 Welcome to OpenIPC
@@ -78,7 +98,7 @@ Welcome to OpenIPC
 openipc-gk7205v300 login:
 ```
 
-### Set up Wi-Fi
+## Set up Wi-Fi
 
 - Open [http://192.168.1.10/cgi-bin/fw-network.cgi](http://192.168.1.10/cgi-bin/fw-network.cgi)
 - Select `wlan0` from the pull-down menu in the `Network interface` field.
