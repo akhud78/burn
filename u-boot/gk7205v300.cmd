@@ -1,3 +1,6 @@
+echo --- Reset default environment ---
+env default -a
+
 echo --- Flash bootloader ---
 mw.b ${baseaddr} 0xff 0x50000
 sf probe 0; sf lock 0; sf erase 0x0 0x50000
@@ -18,9 +21,6 @@ sf write ${baseaddr} 0x350000 ${filesize}
 
 echo --- Reset camera settings ---
 sf probe 0; sf erase 0xd50000 0x2b0000
-
-echo --- Reset default environment ---
-env default -a
 
 echo --- setnor16m ---
 run mtdpartsnor16m; setenv bootcmd ${bootcmdnor};
