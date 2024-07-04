@@ -35,17 +35,17 @@ Trying open /dev/ttyUSB0
 
 For reference, you can see [Notes on installing OpenIPC using Burn](https://github.com/OpenIPC/wiki/blob/master/en/burn-example.md) for Windows.
 
-- Install [Python for Windows](https://www.python.org/downloads/windows/).
-- Install [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
-- Open a command shell.
-    - Click `Start > Run` or press `Windows + R` key.
-    - Type `cmd` and click `OK`.
-- Install python components.
+- Install [Python for Windows](https://www.python.org/downloads/windows/)
+- Install [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+- Open a command shell
+    - Click `Start > Run` or press `Windows + R` key
+    - Type `cmd` and click `OK`
+- Install python components
 ```
 pip install -r requirements.txt
 ```
 - Select the serial port for communication (for example, `COM3`).
-- Run batch file.
+- Run batch file
 ```
 cd C:\Some\Path\burn-master
 burn.bat COM3
@@ -173,7 +173,7 @@ openipc-gk7205v300 login:
 - Disconnect power from the device.
 
 ## Set up Wi-Fi
-- Сonnect an Ethernet cable
+- Connect an Ethernet cable
 - Connect the power 🔌
 - Open [http://root:12345@192.168.1.10/cgi-bin/tool-console.cgi](http://root:12345@192.168.1.10/cgi-bin/tool-console.cgi)
     - Enter command: `firstboot` and press `Run`.
