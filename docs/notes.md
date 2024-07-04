@@ -5,8 +5,9 @@
 - Download zipped repository from [burn](https://github.com/akhud78/burn) project.
     - Above the list of files, click  **Code**.
     - Click  **Download ZIP**
+    - Unzip `burn-master.zip` into `C:\Some\Path` directory.
 - Format the entire disk as FAT32.
-- Copy the files from [u-boot](https://github.com/akhud78/burn/tree/master/u-boot) directory to your SD Card:
+- Copy these files from `C:\Some\Path\burn-master\u-boot` to the SD Card:
     - `gk7205v300.scr`
     - `u-boot-gk7205v300-universal.bin`
     - `uImage.gk7205v300`
@@ -14,7 +15,6 @@
 
 ## Burn
 - Disconnect power from the device.
-- Сonnect an Ethernet cable.
 - Insert the SD card in the memory card slot.
 - Connect device UART with PCB clip (1-TX, 2-GND, 3-RX).
 
@@ -23,7 +23,7 @@
 
 ### Linux
 ```
-$ cd burn/
+$ cd burn-master/
 $ SOC=gk7205v300 DEV='/dev/ttyUSB0'
 $ ./burn --chip $SOC --file=u-boot/u-boot-$SOC-universal.bin --break; sleep 1; \
   echo 'fatload mmc 0:1 $baseaddr' "$SOC.scr;" 'source $baseaddr' > $DEV; \
@@ -40,9 +40,15 @@ For reference, you can see [Notes on installing OpenIPC using Burn](https://gith
 - Open a command shell
     - Click `Start > Run` or press `Windows + R` key.
     - Type `cmd` and click `OK`.
+- Install python components
 ```
-> cd burn
-> burn.bat COM3
+pip install -r requirements.txt
+```
+- Select the serial port for communication (for example, `COM3`).
+- Run batch file
+```
+cd C:\Some\Path\burn-master
+burn.bat COM3
 
 Trying open COM3
 ```
@@ -164,8 +170,11 @@ openipc-gk7205v300 login:
 ```
 Завершить выполнение пакетного файла [Y(да)/N(нет)]? Y
 ```
+- Disconnect power from the device.
 
 ## Set up Wi-Fi
+- Сonnect an Ethernet cable.
+- Connect the power 🔌
 - Open [http://root:12345@192.168.1.10/cgi-bin/tool-console.cgi](http://root:12345@192.168.1.10/cgi-bin/tool-console.cgi)
     - Enter command: `firstboot` and press `Run`.
 - Open [http://192.168.1.10/cgi-bin/fw-network.cgi](http://192.168.1.10/cgi-bin/fw-network.cgi)
