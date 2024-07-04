@@ -3,9 +3,9 @@
 ## Set up your SD card
 
 - Download zipped repository from [burn](https://github.com/akhud78/burn) project.
-    - Above the list of files, click  **Code**.
-    - Click  **Download ZIP**.
-    - Unzip `burn-master.zip` into `C:\Some\Path` directory.
+    - Above the list of files, click  **Code**
+    - Click  **Download ZIP**
+    - Unzip `burn-master.zip` into `C:\Some\Path` directory
 - Format the entire disk as FAT32.
 - Copy these files from `C:\Some\Path\burn-master\u-boot` to the SD Card:
     - `gk7205v300.scr`
@@ -14,9 +14,9 @@
     - `rootfs.squashfs.gk7205v300`
 
 ## Burn
-- Disconnect power from the device.
-- Insert the SD card in the memory card slot.
-- Connect device UART with PCB clip (1-TX, 2-GND, 3-RX).
+- Disconnect power from the device
+- Insert the SD card in the memory card slot
+- Connect device UART with PCB clip (1-TX, 2-GND, 3-RX)
 
 ![yucheng_2](yucheng_2.jpg)
 
@@ -33,7 +33,7 @@ Trying open /dev/ttyUSB0
 ```
 ### Windows
 
-For reference, you can see [Notes on installing OpenIPC using Burn](https://github.com/OpenIPC/wiki/blob/master/en/burn-example.md) for Windows.
+For reference, you can see [Notes on installing OpenIPC using Burn](https://github.com/OpenIPC/wiki/blob/master/en/burn-example.md) for Windows
 
 - Install [Python for Windows](https://www.python.org/downloads/windows/)
 - Install [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
@@ -44,7 +44,7 @@ For reference, you can see [Notes on installing OpenIPC using Burn](https://gith
 ```
 pip install -r requirements.txt
 ```
-- Select the serial port for communication (for example, `COM3`).
+- Select the serial port for communication (for example, `COM3`)
 - Run batch file
 ```
 cd C:\Some\Path\burn-master
@@ -166,17 +166,17 @@ Starting majestic: OK
 Welcome to OpenIPC
 openipc-gk7205v300 login:
 ```
-- Press `Ctrl-C`to exit.
+- Press `Ctrl-C`to exit
 ```
 Завершить выполнение пакетного файла [Y(да)/N(нет)]? Y
 ```
-- Disconnect power from the device.
+- Disconnect power from the device
 
 ## Set up Wi-Fi
 - Connect an Ethernet cable
 - Connect the power 🔌
 - Open [http://root:12345@192.168.1.10/cgi-bin/tool-console.cgi](http://root:12345@192.168.1.10/cgi-bin/tool-console.cgi)
-    - Enter command: `firstboot` and press `Run`.
+    - Enter command: `firstboot` and press `Run`
 - Open [http://192.168.1.10/cgi-bin/fw-network.cgi](http://192.168.1.10/cgi-bin/fw-network.cgi)
     - Select `wlan0` from the pull-down menu in the `Network interface` field.
     - Set up `WLAN SSID` and `WLAN Password` and press `Save Changes`.
