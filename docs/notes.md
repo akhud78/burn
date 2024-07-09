@@ -42,12 +42,12 @@ For reference, you can see [Notes on installing OpenIPC using Burn](https://gith
     - Type `cmd` and click `OK`
 - Install python components
 ```
+cd C:\Some\Path\burn-master
 pip install -r requirements.txt
 ```
 - Select the serial port for communication (for example, `COM3`).
 - Run batch file
 ```
-cd C:\Some\Path\burn-master
 burn.bat COM3
 
 Trying open COM3
