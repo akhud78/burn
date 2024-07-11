@@ -10,6 +10,7 @@
 - Copy these files from `C:\Some\Path\burn-master\u-boot` to the SD Card:
     - `gk7205v300.scr`
     - `u-boot-gk7205v300-universal.bin`
+- Download these files from [releases](https://github.com/akhud78/burn/releases) and copy them to the SD Card:
     - `uImage.gk7205v300`
     - `rootfs.squashfs.gk7205v300`
 
