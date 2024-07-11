@@ -1,5 +1,7 @@
 # Burn
 
+[Notes](docs/notes.md)
+
 ## Video Tutorials
 ![YoutubeScreenshot](https://github.com/OpenIPC/burn/assets/37488/7c19fd75-1806-40c3-901e-ff087f5e35e4)
 
