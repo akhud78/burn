@@ -26,7 +26,7 @@
 ```
 $ cd burn-master/
 $ SOC=gk7205v300 DEV='/dev/ttyUSB0'
-$ ./burn --chip $SOC --file=u-boot/u-boot-$SOC-universal.bin --break; sleep 1; \
+$ ./burn --chip $SOC --file=u-boot/u-boot-$SOC-universal.bin --break; sleep 2; \
   echo 'fatload mmc 0:1 $baseaddr' "$SOC.scr;" 'source $baseaddr' > $DEV; \
   screen -L $DEV 115200
 
@@ -180,7 +180,9 @@ openipc-gk7205v300 login:
     - Enter command: `firstboot` and press `Run`.
 - Open [http://192.168.1.10/cgi-bin/fw-network.cgi](http://192.168.1.10/cgi-bin/fw-network.cgi)
     - Select `wlan0` from the pull-down menu in the `Network interface` field.
-    - Set up `WLAN SSID` and `WLAN Password` and press `Save Changes`.
+    - Set up `WLAN SSID` and `WLAN Password`
+    - Set `Use DHCP`
+    - Press `Save Changes`.
 
 ![setup_wifi](setup_wifi.jpg)
 
